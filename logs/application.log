@@ -2645,3 +2645,4 @@ Verify the connector's configuration, identify and stop any process that's liste
 2019-08-29 16:46:28.482  INFO 13756 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
 2019-08-29 16:46:28.486  INFO 13756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-08-29 16:46:28.496  INFO 13756 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-08-29 20:26:59.651  WARN 10384 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h57m58s971ms120µs60ns).

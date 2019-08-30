@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import tws.dto.EmployeeDto;
 import tws.entity.Employee;
 import tws.repository.EmployeeMapper;
+import tws.service.EmployeeService;
 
 import java.net.URI;
 import java.util.List;
@@ -26,6 +29,7 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeMapper employeeMapper;
+    private EmployeeService employeeService;
 
     @GetMapping("")
     public ResponseEntity<List<Employee>> getAll() {
@@ -56,6 +60,12 @@ public class EmployeeController {
     public ResponseEntity<Employee> deleteOne(@PathVariable String id){
     	employeeMapper.deleteOne(id);
     	return ResponseEntity.status(HttpStatus.OK).build();
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<EmployeeDto> getById(@PathVariable String id){
+    	EmployeeDto employeeDto = employeeService.getEmployWithDesc(id);
+    	return ResponseEntity.ok(employeeDto);
     }
 
 }

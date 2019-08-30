@@ -16,5 +16,8 @@ public interface EmployeeMapper {
     public void insert(@Param("employee") Employee employee);
     public void update(@Param("id") String id,@Param("employee") Employee employee);
     public void deleteOne(@Param("id") String id);
+    
+    Employee selectdto(@Param("id") String id);
+    
 }
 
