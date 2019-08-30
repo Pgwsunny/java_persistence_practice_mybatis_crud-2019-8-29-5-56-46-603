@@ -1,5 +1,7 @@
 package tws.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,7 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeMapper employeeMapper;
 	
-	public EmployeeDto getEmployWithDesc(String id) {
+	public EmployeeDto getById(String id) {
 		Employee employee = employeeMapper.selectOne(id);
     	EmployeeDto employeeDto = new EmployeeDto();
     	employeeDto.setId(employee.getId());
@@ -23,4 +25,13 @@ public class EmployeeService {
     	employeeDto.setDesc(desc);
     	return employeeDto;
 	}
+
+	public List<Employee> selectAll(String keyword,int page, int pageSize) {
+		int offset = (page-1)*(pageSize);
+		int count = pageSize;
+		List<Employee> employees = employeeMapper.selectAll(keyword,offset,count);
+		return employees;
+	}
+	
+	
 }
